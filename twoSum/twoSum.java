@@ -11,8 +11,8 @@ public class twoSum{
 		System.out.println("Inputs (10):");
 		for(int i=0; i < 10; i++){
 			try{
-			nums[i] = scanner.nextInt();
-			System.out.println(nums[i]);
+				nums[i] = scanner.nextInt();
+				System.out.println(nums[i]);
 			} catch (java.util.InputMismatchException e){
 				scanner.next();
 				break;
