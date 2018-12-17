@@ -79,21 +79,23 @@ class Solution {
 	ListNode result = tmp;
         int carry = 0;
         while((ptr1 != null) || (ptr2 != null)){
+		//System.out.println("@carry: " + carry);
                 if(ptr1 == null){
-                        tmp.val = ptr2.val + carry;
+                        tmp.val = ptr2.val + tmp.val;
                         ptr2 = ptr2.next;
                 }else if(ptr2 == null){
-                        tmp.val = ptr1.val + carry;
+                        tmp.val = ptr1.val + tmp.val;
                         ptr1 = ptr1.next;
                 }else{
-                        tmp.val = ptr1.val + ptr2.val + carry;
+                        tmp.val = ptr1.val + ptr2.val + tmp.val;
                         ptr1 = ptr1.next;
                         ptr2 = ptr2.next;
                 }
 		if (tmp.val > 9){
 			carry = tmp.val / 10;
+			//System.out.println("@@carry: " + carry);
 			tmp.val = tmp.val % 10;
-			tmp.next = new ListNode(0);
+			tmp.next = new ListNode(carry);
 		}else if(ptr1 != null || ptr2 != null){
 			tmp.next = new ListNode(0);
 		}
@@ -109,6 +111,7 @@ class ListNode {
     ListNode(int x) { val = x; }
 
     public void print(){
+	System.out.println("Result:");
 	for (ListNode p = this; p != null ; p = p.next){
 		System.out.print(p.val);
 		System.out.print(" ");
