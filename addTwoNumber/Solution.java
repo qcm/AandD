@@ -25,43 +25,51 @@ import java.util.Scanner;
 class Solution {
     public static void main(String str[]){
 	System.out.println("Add Two Numbers");
-	System.out.print("Number #1: ");
-	Scanner scanner = new Scanner(System.in);
+	System.out.println("Number #1: ");
+	Scanner scanner1 = new Scanner(System.in);
+	Scanner scanner2 = new Scanner(System.in);
 	ListNode l1 = new ListNode(0);
-	ListNode tmp = l1;
 	ListNode l2 = new ListNode(0);
-	/* NG
-	*/
+	/* Test. NG case.
 	tmp = tmp.next;
+	// Below indicates they are still pointing to same entity
 	if (l1.next == tmp) System.out.println("*true*");
 	else System.out.println("*false*");
 
 	tmp = new ListNode(1);
+	// Below indicates tmp already pointing to a new address
 	if (l1.next == tmp) System.out.println("**true**");
 	else System.out.println("**false**");
-
 	tmp = tmp.next;
 	tmp = new ListNode(2);
-	/* OK
+	*/
+
+	/* Test. OK case.
 	tmp.next = new ListNode(1);
 	tmp = tmp.next;
 	tmp.next = new ListNode(2);
 	*/
 	
 	
-	//while(scanner.hasNextInt()){
-	//	tmp.val = scanner.nextInt();
-	//	System.out.print("*");
-	//	System.out.print(tmp.val);
-	//	System.out.print("*");
-	//	tmp.next = new ListNode(0);
-	//	tmp = tmp.next;
-	//}
+	ListNode tmp = l1;
+	if(scanner1.hasNextInt()){
+		tmp.val = scanner1.nextInt();
+	}
+	while(scanner1.hasNextInt()){
+		tmp.next = new ListNode(scanner1.nextInt());
+	}
 	l1.print();
-	//System.out.print("Number #2");
+
+	tmp = l2;
+	System.out.println("Number #2");
+	if (scanner2.hasNextInt()) tmp.val = scanner2.nextInt();
+	while (scanner2.hasNextInt()){
+		tmp.next = new ListNode(scanner2.nextInt());
+	}
+	l2.print();
 	
-	//ListNode result = addTwoNumbersReverse(l1, l2);
-	//result.print();
+	ListNode result = addTwoNumbersReverse(l1, l2);
+	result.print();
     }
     
     // Implementation
