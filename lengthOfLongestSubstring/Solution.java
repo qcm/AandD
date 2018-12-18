@@ -38,10 +38,11 @@ class Solution {
 		return 1 + lengthOfLongestSubstring(nextStr);
 	}else{
 		// Indices not the same, more than one occurrence -> split String
-		int l1 = lengthOfLongestSubstring(indx, s.lastIndexOf(target));
-		int l2 = lengthOfLongestSubstring(s.lastIndexOf(target), s.length());
+		String sub1 = s.substring( indx, s.lastIndexOf(target));
+		String sub2 = s.substring( s.lastIndexOf(target), s.length());
+		int l1 = lengthOfLongestSubstring(sub1);
+		int l2 = lengthOfLongestSubstring(sub2);
 		return ( l1 > l2 ) ? l1 : l2;
 	}	
-	return 0;
     }
 }
