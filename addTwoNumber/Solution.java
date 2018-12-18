@@ -50,13 +50,13 @@ class Solution {
 	tmp.next = new ListNode(2);
 	*/
 	
-	
 	ListNode tmp = l1;
 	if(scanner1.hasNextInt()){
 		tmp.val = scanner1.nextInt();
 	}
 	while(scanner1.hasNextInt()){
 		tmp.next = new ListNode(scanner1.nextInt());
+		tmp = tmp.next;
 	}
 	l1.print();
 
@@ -65,6 +65,7 @@ class Solution {
 	if (scanner2.hasNextInt()) tmp.val = scanner2.nextInt();
 	while (scanner2.hasNextInt()){
 		tmp.next = new ListNode(scanner2.nextInt());
+		tmp = tmp.next;
 	}
 	l2.print();
 	
